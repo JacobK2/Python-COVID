@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Formularze zgłoszeniowe
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <h1>Formularz zgłoszenia</h1>
+        <br/>
+        {% if error %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ error }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+        {% endif %}
+
+<form class="row g-3" action="/formularz" method="post">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail4" name="email" value="{{ email }}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Hasło</label>
+    <input type="password" class="form-control" id="inputPassword4" name="password" value="{{ password }}">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Imię</label>
+    <input type="text" class="form-control" id="inputAddress" name="first_name" value="{{ first_name }}">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Nazwisko</label>
+    <input type="text" class="form-control" id="inputAddress2" name="last_name" value="{{ last_name }}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Miasto</label>
+    <input type="text" class="form-control" id="inputCity" name="city" value="{{ city }}">
+  </div>
+    <label>Zaznacz występujące objawy:</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="goraczka" value="{{ goraczka }}">
+  <label class="form-check-label" for="defaultCheck1">
+    Gorączka
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck2" name="suchy_kaszel" value="{{ suchy_kaszel }}">
+  <label class="form-check-label" for="defaultCheck2">
+    Suchy kaszel
+  </label>
+</div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck3" name="nudnosci" value="{{ nudnosci }}">
+  <label class="form-check-label" for="defaultCheck3">
+    Nudności
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck4" name="bol_miesni" value="{{ bol_miesni }}">
+  <label class="form-check-label" for="defaultCheck4">
+    Ból mięśni
+  </label>
+</div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck5" name="katar" value="{{ katar }}">
+  <label class="form-check-label" for="defaultCheck5">
+    Katar
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="defaultCheck6" name="dreszcze" value="{{ dreszcze }}">
+  <label class="form-check-label" for="defaultCheck6">
+    Dreszcze
+  </label>
+</div>
+        <br/>
+    <br/>
+        <br/>
+    <br/>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck" name="agree_data">
+      <label class="form-check-label" for="gridCheck">
+        Zgadzam się na przetwarzanie moich danych.
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Wyślij zgłoszenie</button>
+  </div>
+</form>
+        </div>
+{% endblock %}
